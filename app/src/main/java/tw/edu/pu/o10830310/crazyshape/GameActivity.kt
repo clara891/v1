@@ -1,5 +1,6 @@
 package tw.edu.pu.o10830310.crazyshape
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import androidx.appcompat.app.AppCompatActivity
@@ -15,9 +16,22 @@ import tw.edu.pu.o10830190.crazyshape.ml.Shapes
 
 
 class GameActivity : AppCompatActivity() {
+
+    var Flagshape:Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        var intent = getIntent()
+        Flagshape = intent.getIntExtra("形狀",-1)
+        when (Flagshape){
+            1->txvMsg.text="請畫出圓形"
+            2->txvMsg.text="請畫出圓形"
+            3->txvMsg.text="請畫出圓形"
+            4->txvMsg.text="請畫出圓三角形"
+        }
+
         btnBack.setOnClickListener(object : View.OnClickListener {
             override fun onClick(p0: View?) {
                 finish()
